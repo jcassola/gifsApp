@@ -1,15 +1,18 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, ViewChild, } from '@angular/core';
 
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BusquedaComponent implements OnInit {
+export class BusquedaComponent  {
 
-  constructor() { }
+  @ViewChild('txtBuscar') txtBuscar!:ElementRef<HTMLInputElement>
+  buscar(){
+    const valor = this.txtBuscar.nativeElement.value;
 
-  ngOnInit(): void {
+    console.log(valor);
+
+    this.txtBuscar.nativeElement.value = '';
   }
 
 }
